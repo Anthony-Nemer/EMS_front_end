@@ -1,0 +1,201 @@
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 70px);
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    background-color: black; 
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    background-color: black; 
+}
+
+.register-container .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    filter: brightness(75%);
+}
+
+.register-form {
+    position: relative;
+    background: rgba(255, 255, 255, 1);
+    padding: 40px;
+    margin-left: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    text-align: left;
+}
+
+.login-logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.register-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.register-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.register-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.register-form select{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+.register-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.register-form button:hover {
+    background-color: #0056b3;
+}
+
+.register-form .error {
+    color: red;
+    margin-top: 10px;
+}
+
+input[type="radio"]:hover,
+label:hover {
+    cursor: pointer;
+}
+
+
+/* From Uiverse.io by coding-masala */
+.radio-buttons {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    gap: 20px;
+  }
+  
+  .radio-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .radio-button input[type="radio"] {
+    display: none; /* Hide the default radio button */
+  }
+  
+  .radio-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #aaa;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer; /* Ensure cursor is a pointer on hover */
+  }
+  
+  .radio-circle::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .radio-button input[type="radio"]:checked + .radio-circle::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .radio-button:nth-of-type(1) input[type="radio"]:checked + .radio-circle::before {
+    background-color: #002fffe1;
+  }
+  
+  .radio-button:nth-of-type(2) input[type="radio"]:checked + .radio-circle::before {
+    background-color: #002fffe1;
+  }
+  
+  .radio-button:nth-of-type(3) input[type="radio"]:checked + .radio-circle::before {
+    background-color: #002fffe1;
+  }
+  
+  .radio-label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .radio-button:hover .radio-circle {
+    border-color: #555;
+  }
+  
+  .radio-button:hover input[type="radio"]:checked + .radio-circle::before {
+    background-color: #555;
+  }
+  
+  /* Ensures the radio button is clickable */
+  .radio-button input[type="radio"]:focus + .radio-circle {
+    outline: none;
+  }
+  
+  .radio-button input[type="radio"]:checked + .radio-circle {
+    background-color: #ddd; /* Add a background color to indicate selection */
+  }
+  
+  .register-form .back-btn {
+    width: auto; 
+    height: auto; 
+    padding: 5px 10px; 
+    background-color: 007bff; 
+    color: white; 
+    font-size: 16px; 
+    font-weight: bold; 
+    border: none; 
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer; 
+}
+.register-form .back-btn:hover {
+  background-color: #0056b3;
+}
