@@ -66,6 +66,11 @@ const Login = ({ onLoginSuccess }) => {
 
     return (
         <div className="login-container">
+            <div className='scale-text'>
+                <h2>Plan</h2>  
+                <h2>Organize</h2> 
+                <h2>&Manage events seamlessly!</h2> 
+            </div>
             <div className="login-form">
                 <form onSubmit={handleSubmit}>
                     <div>

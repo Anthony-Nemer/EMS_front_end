@@ -103,7 +103,11 @@ function RegisterPage() {
     return(
         
         <div className='register-page'>
-
+             <div className='scale-text'>
+               <h2>Plan</h2>  
+                <h2>Organize</h2> 
+                <h2>&Manage events seamlessly!</h2> 
+            </div>
             <div className='register-container'>
                 <form className='register-form' onSubmit={handleRegister}>
                     <h2>Register</h2>           
