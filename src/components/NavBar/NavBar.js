@@ -1,21 +1,41 @@
-import React from 'react';
-import './NavBar.css';
-import { Button } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import "./NavBar.css";
 
-const NavBar = ({ fullName, handleLogout }) => {
-    const navigate = useNavigate();
-    
+export const ClientNav = ({ fullName, handleLogout }) => (
+  <nav className="navbar">
+    <ul>
+      <li>Welcome, {fullName}</li>
+      <li>Home</li>
+      <li>Book Event</li>
+      <li>My Payments</li>
+      <li>Feedback</li>
+      <li onClick={handleLogout}>Logout</li>
+    </ul>
+  </nav>
+);
 
+export const HostNav = ({ fullName, handleLogout }) => (
+  <nav className="navbar">
+    <ul>
+      <li>Welcome, {fullName}</li>
+      <li>Home</li>
+      <li>Create Event</li>
+      <li>Manage Events</li>
+      <li>Venue Bookings</li>
+      <li onClick={handleLogout}>Logout</li>
+    </ul>
+  </nav>
+);
 
-    return (
-        <div id="nav-bar">
-            <div className="nav__bar--end">
-                <p className="nav__bar--username">{fullName}</p>
-                <Button size="small" variant="contained" onClick={handleLogout}>Logout</Button>
-            </div>
-        </div>
-    );
-};
-
-export default NavBar;
+export const SupplierNav = ({ fullName, handleLogout }) => (
+  <nav className="navbar">
+    <ul>
+      <li>Welcome, {fullName}</li>
+      <li>Home</li>
+      <li>My Services</li>
+      <li>Add Service</li>
+      <li>Feedback</li>
+      <li onClick={handleLogout}>Logout</li>
+    </ul>
+  </nav>
+);
