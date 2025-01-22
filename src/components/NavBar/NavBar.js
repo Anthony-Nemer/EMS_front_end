@@ -1,41 +1,50 @@
 import React from "react";
-import "./NavBar.css";
+import "./NavBar.css"; 
+import { useNavigate } from "react-router-dom";
 
-export const ClientNav = ({ fullName, handleLogout }) => (
-  <nav className="navbar">
-    <ul>
-      <li>Welcome, {fullName}</li>
-      <li>Home</li>
-      <li>Book Event</li>
-      <li>My Payments</li>
-      <li>Feedback</li>
-      <li onClick={handleLogout}>Logout</li>
-    </ul>
-  </nav>
-);
+export const ClientNav = ({ fullName, handleLogout }) => {
+  const navigate = useNavigate();
 
-export const HostNav = ({ fullName, handleLogout }) => (
-  <nav className="navbar">
-    <ul>
-      <li>Welcome, {fullName}</li>
-      <li>Home</li>
-      <li>Create Event</li>
-      <li>Manage Events</li>
-      <li>Venue Bookings</li>
-      <li onClick={handleLogout}>Logout</li>
-    </ul>
-  </nav>
-);
+  return (
+    <nav className="navbar">
+      <ul>
+        <li onClick={() => navigate("/homepage")}>Home</li>
+        <li onClick={() => navigate("/new-event")}>Book Event</li>
+        <li>Ongoing Events</li>
+        <li>My Payments</li>
+        <li>Feedback</li>
+        <li onClick={handleLogout}>Logout</li>
+      </ul>
+    </nav>
+  );
+};
 
-export const SupplierNav = ({ fullName, handleLogout }) => (
-  <nav className="navbar">
-    <ul>
-      <li>Welcome, {fullName}</li>
-      <li>Home</li>
-      <li>My Services</li>
-      <li>Add Service</li>
-      <li>Feedback</li>
-      <li onClick={handleLogout}>Logout</li>
-    </ul>
-  </nav>
-);
+export const HostNav = ({ fullName, handleLogout }) => {
+  const navigate = useNavigate();
+
+  return (
+    <nav className="navbar">
+      <ul>
+        <li onClick={() => navigate("/homepage")}>Home</li>
+        <li>Manage Events</li>
+        <li onClick={handleLogout}>Logout</li>
+      </ul>
+    </nav>
+  );
+};
+
+export const SupplierNav = ({ fullName, handleLogout }) => {
+  const navigate = useNavigate();
+
+  return (
+    <nav className="navbar">
+      <ul>
+        <li onClick={() => navigate("/homepage")}>Home</li>
+        <li>My Services</li>
+        <li>Add Service</li>
+        <li>Feedback</li>
+        <li onClick={handleLogout}>Logout</li>
+      </ul>
+    </nav>
+  );
+};

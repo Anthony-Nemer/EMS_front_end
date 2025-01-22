@@ -5,8 +5,13 @@ import LoginPage from './components/LoginPage/login';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import HomePage from './components/HomePage/HomePage';
 import { ClientNav, HostNav, SupplierNav } from './components/NavBar/NavBar';
+import NewEvent from './components/NewEvent/NewEvent';
+
+
+
 
 function App() {
+  const [userInfo, setUserInfo]=useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [id, setId] = useState('');
   const [fullName, setFullName] = useState('');
@@ -15,7 +20,8 @@ function App() {
   const [isSupplier, setIsSupplier] = useState(false);
   const [isHost, setIsHost] = useState(false);
 
-  const handleLoginSuccess = (id, fullName, email, mobile, isSupplier, isHost) => {
+  const handleLoginSuccess = (userInfo, id, fullName, email, mobile, isSupplier, isHost) => {
+    setUserInfo(userInfo);
     setId(id);
     setFullName(fullName);
     setEmail(email);
@@ -23,6 +29,7 @@ function App() {
     setIsSupplier(isSupplier);
     setIsHost(isHost);
     setLoggedIn(true);
+    console.log('HOST: ', isHost);
   };
 
   const handleLogout = () => {
@@ -65,6 +72,9 @@ function App() {
                 <Navigate to="/" replace />
               )
             }
+          />
+          <Route path='/new-event'
+            element={<NewEvent  userInfo={userInfo}/>}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

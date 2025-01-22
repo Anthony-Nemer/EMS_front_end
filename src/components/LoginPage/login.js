@@ -20,7 +20,7 @@ const Login = ({ onLoginSuccess }) => {
             const res = await Axios.post(`${baseUrl}/login`, { email, password });    
             setError('');     
             const { userInfo, id, fullName, email: responseEmail, mobile, isSupplier, isHost } = res.data;  
-            onLoginSuccess(id, fullName, email, mobile, isSupplier, isHost);
+            onLoginSuccess(userInfo, id, fullName, email, mobile, isSupplier, userInfo.isHost);
             navigate('/homepage');
     
         } catch (err) {
