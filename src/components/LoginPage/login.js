@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import './login.css';
+import logo from "../../assets/PlanPerfect.png"
 
 const baseUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
@@ -72,6 +73,7 @@ const Login = ({ onLoginSuccess }) => {
                 <h2>&Manage events seamlessly!</h2> 
             </div>
             <div className="login-form">
+                <img src={logo} alt="Plan Perfect Logo" className="login-logo"></img>
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label>Email:</label>
@@ -96,7 +98,7 @@ const Login = ({ onLoginSuccess }) => {
                     <button type="submit" disabled={!email || !password || isInitialLogin}>Login</button>
                 </form>
             </div>
-        </div>
+        </div>  
     );
 };
 
