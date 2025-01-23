@@ -3,13 +3,13 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #ffffff, #4285f4, #000000);
 }
 
-.scale-text{
+.scale-text {
     font-size: 2rem;
     font-weight: bold;
     animation: scale 3s infinite;
@@ -17,30 +17,38 @@
     margin: 40px;
 }
 
-@keyframes scale{
-    0%,100%{
-       transform: scale(1);
+@keyframes scale {
+    0%, 100% {
+        transform: scale(1);
     }
-    50%{
+    50% {
         transform: scale(1.1);
     }
 }
 
-
 .login-form {
     position: relative;
     background: rgba(255, 255, 255, 1);
-    padding: 40px;
-    margin-left: 300px;
+    padding: 30px;
+    width: 300px;  /* Fixed width for better form control */
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-logo {
+    width: 70px;
+    margin-bottom: 20px;
+    align-self: center;
 }
 
 .login-form h2 {
     margin-bottom: 20px;
     color: #333;
+    text-align: center;
 }
 
 .login-form label {
@@ -52,7 +60,7 @@
 .login-form input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;  /* Increased spacing for better readability */
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
@@ -76,16 +84,24 @@
 .login-form .error {
     color: red;
     margin-top: 10px;
+    text-align: center;
 }
 
-.register-btn{
+.register-btn {
     font-size: 80%;
     color: blue;
     text-decoration: underline;
-}
-
-.register-btn:hover{
-    color: grey;
-    text-decoration: underline;
+    text-align: center;
     cursor: pointer;
 }
+
+.register-btn:hover {
+    color: grey;
+    text-decoration: underline;
+<<<<<<< Updated upstream
+    cursor: pointer;
+}
+=======
+}
+
+>>>>>>> Stashed changes

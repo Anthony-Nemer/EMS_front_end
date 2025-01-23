@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import './login.css';
+import logo from '../../assets/PlanPerfect.png';
 
 const baseUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
@@ -20,7 +21,7 @@ const Login = ({ onLoginSuccess }) => {
             const res = await Axios.post(`${baseUrl}/login`, { email, password });    
             setError('');     
             const { userInfo, id, fullName, email: responseEmail, mobile, isSupplier, isHost } = res.data;  
-            onLoginSuccess(userInfo, id, fullName, email, mobile, isSupplier, userInfo.isHost);
+            onLoginSuccess(userInfo, id, fullName, email, mobile, isSupplier, isHost);
             navigate('/homepage');
     
         } catch (err) {
@@ -72,8 +73,10 @@ const Login = ({ onLoginSuccess }) => {
                 <h2>&Manage events seamlessly!</h2> 
             </div>
             <div className="login-form">
+             <div><img src={logo} alt="Logo" className="login-logo" /> </div>
+             <div>
                 <form onSubmit={handleSubmit}>
-                    <div>
+                    <div className="login-label">
                         <label>Email:</label>
                         <input
                             type="email"
@@ -95,6 +98,7 @@ const Login = ({ onLoginSuccess }) => {
                     <span className='register-btn' onClick={handleRegisterNav}>Register</span>
                     <button type="submit" disabled={!email || !password || isInitialLogin}>Login</button>
                 </form>
+                </div>
             </div>
         </div>
     );

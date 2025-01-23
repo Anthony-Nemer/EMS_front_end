@@ -29,12 +29,14 @@ function NewEvent (userInfo) {
                 <input type="number" required/>
             </label>
             <label>Number of tables:
-                <input type="number" required/>
-            </label>Cuisine
-            <select>
-                <option>cuisine 1</option>
-                <option>cuisine 2</option>
-            </select>
+                <input type="number" required></input>
+            </label>
+            <label>Cuisine:
+                <select>
+                    <option>Cuisine 1</option>
+                    <option>Cuisine 2</option>
+                </select>
+            </label>
 
            {/*Radio for services then selects for customization */}
         </form>

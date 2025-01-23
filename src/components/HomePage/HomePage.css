@@ -7,23 +7,28 @@
     overflow-x: hidden;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #ffffff, #4285f4, #000000);
+    background: linear-gradient(to bottom, #4f95d3 10%, #1c1ec7 90%); 
+    /* background-color: #1c1ec7; */
 }
 
-.scale-text{
+.move-text{
     right: 50%;
     font-size: 2rem;
     font-weight: bold;
-    animation: scale 3s infinite;
+    animation: moveText 2s  infinite alternate-reverse;
     color: #173556c9;
     margin: 40px;
 }
 
-@keyframes scale{
-    0%,100%{
-       transform: scale(1);
+@keyframes moveText {
+    0% {
+      transform: translateX(0);
     }
-    50%{
-        transform: scale(1.1);
+    50% {
+      transform: translateX(-50px); /* Move left */
     }
-}
+    100% {
+      transform: translateX(50px); /* Move right */
+    }
+  }
+  
