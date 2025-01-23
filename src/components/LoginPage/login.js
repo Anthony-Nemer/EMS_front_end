@@ -63,7 +63,6 @@ const Login = ({ onLoginSuccess }) => {
         }
     };
     
-//ALOUUUUUUU
     return (
         <div className="login-container">
             <div className='scale-text'>
