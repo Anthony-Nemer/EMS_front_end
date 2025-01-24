@@ -89,3 +89,12 @@
         bottom: 10px;
     }
 }
+.venue-cuisine{
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #4f95d3 10%, #1c1ec7 90%); 
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+ 
+}

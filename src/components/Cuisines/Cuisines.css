@@ -1,0 +1,25 @@
+h2{
+    color: white;
+}
+button{
+  background-color: #2632bca0;
+  padding: 10px;
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.5);
+  margin: 10px;
+}
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    gap: 20px;
+}
+.cuisine{
+    margin-left: 70px;
+}
+.flex-item{
+    flex: 1 1 25%;
+    box-sizing: border-box;
+}

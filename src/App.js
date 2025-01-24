@@ -10,6 +10,7 @@ import NewEvent from './components/NewEvent/NewEvent';
 
 
 
+
 function App() {
   const [userInfo, setUserInfo]=useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -19,6 +20,7 @@ function App() {
   const [mobile, setMobile] = useState('');
   const [isSupplier, setIsSupplier] = useState(false);
   const [isHost, setIsHost] = useState(false);
+
 
   const handleLoginSuccess = (userInfo, id, fullName, email, mobile, isSupplier, isHost) => {
     setUserInfo(userInfo);

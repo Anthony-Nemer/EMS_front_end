@@ -1,6 +1,8 @@
 import React from 'react';
 import './HomePage.css';
 import { useNavigate } from 'react-router-dom';
+import Venue from '../Venue/Venue';
+import Cuisine from '../Cuisines/Cuisines';
 
 const HomePage = ({ id, fullName, email, mobile, isSupplier, isHost }) => {
   const navigate= useNavigate();
@@ -37,6 +39,10 @@ const HomePage = ({ id, fullName, email, mobile, isSupplier, isHost }) => {
                 <br/>
                 <p>PlanPerfect allows you to customize every detail of your event. Tailor menus, themes, and services to create a truly unique experience.</p>
             </div>
+        </div>
+        <div className="venue-cuisine">
+         <div><Venue/></div>
+         <div><Cuisine/></div>
         </div>
   </div>
   );
