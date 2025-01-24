@@ -21,18 +21,18 @@ const HomePage = ({ id, fullName, email, mobile, isSupplier, isHost }) => {
               <button onClick={handleButtonClick}>Get Started</button>
             </div>
     </div>
-    <div class="us">
-            <div class="container">
+    <div className="us">
+            <div className="container">
                 <h3>Quality</h3>
                 <br/>
                 <p>PlanPerfect delivers high-quality event planning with premium venues, catering, and services. Every detail is handled with care to ensure flawless execution.</p>
             </div>
-            <div class="container">
+            <div className="container">
                 <h3>Simplicity</h3>
                 <br/>
                 <p>PlanPerfect simplifies event planning with an easy-to-use platform for booking venues and services. Plan your event in just a few clicks.</p>
             </div>
-            <div class="container">
+            <div className="container">
                 <h3>Customization</h3>
                 <br/>
                 <p>PlanPerfect allows you to customize every detail of your event. Tailor menus, themes, and services to create a truly unique experience.</p>
