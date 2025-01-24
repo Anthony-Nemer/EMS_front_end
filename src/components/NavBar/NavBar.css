@@ -3,7 +3,7 @@
     padding: 20px 30px;
     border-bottom: 2px solid #ccc;
     position: fixed;
-    z-index: 10;
+    z-index: 1000;
     width: 100%;
   }
   

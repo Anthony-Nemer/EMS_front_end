@@ -12,7 +12,7 @@ export const ClientNav = ({ fullName, handleLogout }) => {
         <li onClick={() => navigate("/new-event")}>Book Event</li>
         <li>Ongoing Events</li>
         <li>My Payments</li>
-        <li>Feedback</li>
+        <li onClick={() => navigate("/feedback")}>Feedback </li>
         <li onClick={handleLogout}>Logout</li>
       </ul>
     </nav>

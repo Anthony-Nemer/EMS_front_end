@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Venue.css"
 
 const baseUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
@@ -35,7 +35,7 @@ function Venue() {
       
       {venueError && <p style={{ color: "red" }}>{venueError}</p>} 
       {isVisible && (
-      <ul>
+      <ul style={{marginRight:"140px"}}>
         {venues.map((v) => (
           <li key={v.id}>
             <strong>{v.name}</strong>

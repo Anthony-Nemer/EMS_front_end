@@ -6,7 +6,7 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import HomePage from './components/HomePage/HomePage';
 import { ClientNav, HostNav, SupplierNav } from './components/NavBar/NavBar';
 import NewEvent from './components/NewEvent/NewEvent';
-
+import FeedBack from './components/FeedBack/FeedBack';
 
 
 
@@ -77,6 +77,9 @@ function App() {
           />
           <Route path='/new-event'
             element={<NewEvent  userInfo={userInfo}/>}
+          />
+          <Route path='/feedback'
+            element={<FeedBack  userInfo={userInfo}/>}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
