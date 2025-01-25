@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const baseUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
-function FeedBack(userInfo) {
+function FeedBack({userInfo}) {
     const[feedback,setFeedback]=useState("");
     const[rating,setRating]=useState("");
     const[services,setServices]=useState("");
@@ -22,14 +22,21 @@ function FeedBack(userInfo) {
 
     const handleSubmitButton = async (e) => {
         e.preventDefault();  // Prevent page reload
+
+        if(!feedback || !rating || !services){
+          alert("Please fill out all fields");
+          return;
+        }
       
         const feedbackData = {
           user_id: userInfo.id, 
           feedback,
-          rating,
+          rating:Number(rating),
           services,
           suggestions
         };
+
+        console.log("Sending feedBack data:",feedbackData);
       
         try {
           const response = await axios.post(`${baseUrl}/feedback`, feedbackData);
@@ -47,13 +54,14 @@ function FeedBack(userInfo) {
             console.error("Error submitting feedback:", response.data);
           }
         } catch (error) {
-          alert("There was an error submitting your feedback.Please try again.")
+          alert("There was an error submitting your feedback.Please try again.");
+          console.error("Error:",error);
         }
       };
     return (
         <div className="feedback-form">
             <fieldset>
-            <form>
+            <form onSubmit={handleSubmitButton}>
              <div> <h2>We value your feedback!</h2> </div>
              <br/>
              <h4>Your feedback:</h4>
@@ -123,7 +131,7 @@ function FeedBack(userInfo) {
                   cols="70"></textarea>
                 <div className="buttons">
                 <button type="reset" value="reset" onClick={()=>handleResetButton}>Reset</button>
-                <button type="submit" value="submit" onClick={()=>handleSubmitButton}>Submit</button>
+                <button type="submit" value="submit">Submit</button>
                 </div>
             </form>
             </fieldset>
