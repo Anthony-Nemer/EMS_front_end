@@ -7,12 +7,10 @@ import HomePage from './components/HomePage/HomePage';
 import { ClientNav, HostNav, SupplierNav } from './components/NavBar/NavBar';
 import NewEvent from './components/NewEvent/NewEvent';
 import FeedBack from './components/FeedBack/FeedBack';
-
-
-
+import OngoingEvents from './components/OnGoingEvents/OngoingEvents';
 
 function App() {
-  const [userInfo, setUserInfo]=useState([]);
+  const [userInfo, setUserInfo] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [id, setId] = useState('');
   const [fullName, setFullName] = useState('');
@@ -20,7 +18,6 @@ function App() {
   const [mobile, setMobile] = useState('');
   const [isSupplier, setIsSupplier] = useState(false);
   const [isHost, setIsHost] = useState(false);
-
 
   const handleLoginSuccess = (userInfo, id, fullName, email, mobile, isSupplier, isHost) => {
     setUserInfo(userInfo);
@@ -31,7 +28,6 @@ function App() {
     setIsSupplier(isSupplier);
     setIsHost(isHost);
     setLoggedIn(true);
-    console.log('HOST: ', isHost);
   };
 
   const handleLogout = () => {
@@ -51,6 +47,7 @@ function App() {
     <Router>
       <div className="App">
         {loggedIn && renderNavBar()}
+
         <Routes>
           <Route
             path="/"
@@ -75,11 +72,23 @@ function App() {
               )
             }
           />
-          <Route path='/new-event'
-            element={<NewEvent  userInfo={userInfo}/>}
+          <Route
+            path="/new-event"
+            element={
+              loggedIn ? <NewEvent userInfo={userInfo} /> : <Navigate to="/" replace />
+            }
           />
-          <Route path='/feedback'
-            element={<FeedBack  userInfo={userInfo}/>}
+          <Route
+            path="/ongoing-events"
+            element={
+              loggedIn ? <OngoingEvents userInfo={userInfo} /> : <Navigate to="/" replace />
+            }
+          />
+          <Route
+            path="/feedback"
+            element={
+              loggedIn ? <FeedBack userInfo={userInfo} /> : <Navigate to="/" replace />
+            }
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

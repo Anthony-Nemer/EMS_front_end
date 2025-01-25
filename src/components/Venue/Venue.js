@@ -31,24 +31,23 @@ function Venue() {
   return (
     <div className="venue">
       <h2>Our Venues</h2>
-      <button onClick={handleExploreClick}>{isVisible ?"Hide":'Explore'}</button> 
+      <button onClick={handleExploreClick}>{isVisible ? "Hide" : "Explore"}</button>
       
-      {venueError && <p style={{ color: "red" }}>{venueError}</p>} 
-      {isVisible && (
-      <ul style={{marginRight:"140px"}}>
+      {venueError && <p style={{ color: "red" }}>{venueError}</p>}
+      <ul className={`venue-list ${isVisible ? "visible" : "hidden"}`}>
         {venues.map((v) => (
           <li key={v.id}>
             <strong>{v.name}</strong>
             <p>Address: {v.address}</p>
             <p>Capacity: {v.capacity}</p>
             <p>Price: ${v.price}</p>
-            <img src={v.photo} alt={v.name} width="150" /> 
+            <img src={v.photo} alt={v.name} width="150" />
           </li>
         ))}
       </ul>
-  )}:
     </div>
   );
+  
 }
 
 export default Venue;

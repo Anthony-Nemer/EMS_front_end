@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./NewEvent.css";
 import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
-function NewEvent(userInfo) {
+function NewEvent({ userInfo }) {
   const [eventTitle, setEventTitle] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [duration, setDuration] = useState("");
@@ -19,6 +20,9 @@ function NewEvent(userInfo) {
   const [services, setServices] = useState([]);
   const [selectedServices, setSelectedServices] = useState([]);
   const [totalPrice, setTotalPrice] = useState(null);
+
+
+  const navigate = useNavigate();
 
   const handleAttendanceChange = (e) => {
     const value = Number(e.target.value);
@@ -101,29 +105,17 @@ function NewEvent(userInfo) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-
 
     const selectedCuisine = cuisines.find((c) => c.id === Number(cuisine));
     const cuisinePrice = selectedCuisine ? selectedCuisine.price : 0;
-  
     const selectedVenue = venues.find((v) => v.id === Number(venue));
     const venuePrice = selectedVenue ? selectedVenue.price : 0;
-  
-
     const selectedServicesPrice = calculateSelectedServicesPrice();
-
-  
     const validAttendanceNumber = Math.max(0, attendanceNumber);
-  
     const calculatedTableNumber = tableNumber > 0 ? tableNumber : calculateTables();
-  
     const tablesPrice = calculatedTableNumber * 20; 
-  
     const cateringTotal = validAttendanceNumber * cuisinePrice;
-  
     const total = cateringTotal + tablesPrice + venuePrice + selectedServicesPrice;
-
 
     if (!isNaN(total)) {
       setTotalPrice(total);
@@ -150,9 +142,48 @@ function NewEvent(userInfo) {
   };
   
   
-  const handleBookEvent = () => {
-
+  const handleBookEvent = async (e) => {
+    e.preventDefault();  // Prevent page reload
+  
+    const eventData = {
+      user_id: userInfo.id, 
+      event_title: eventTitle,
+      event_date: eventDate,
+      duration: duration,
+      venue_id: venue,
+      attendance_number: attendanceNumber,
+      persons_per_table: personsPerTable,
+      number_of_tables: tableNumber,
+      cuisine_id: cuisine,
+      services: selectedServices 
+    };
+  
+    try {
+      const response = await axios.post(`${baseUrl}/book-event`, eventData);
+      
+      if (response.status === 200) {
+        console.log("Event booked successfully:", response.data);
+  
+        setEventTitle("");
+        setEventDate("");
+        setDuration("");
+        setVenue("");
+        setAttendanceNumber(0);
+        setPersonsPerTable(0);
+        setTableNumber(0);
+        setCuisine("");
+        setSelectedServices([]);
+        setTotalPrice(null);
+  
+        navigate("/homepage");  
+      } else {
+        console.error("Failed to book event:", response.data);
+      }
+    } catch (error) {
+      console.error("Error booking event:", error);
+    }
   };
+  
   
 
   useEffect(() => {
@@ -171,7 +202,7 @@ function NewEvent(userInfo) {
 
   return (
     <div className="new-event">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleBookEvent}>
         <label>
           Event Title:
           <input
@@ -272,11 +303,11 @@ function NewEvent(userInfo) {
           ))}
         </div>
 
-        <button type="submit">Request Price</button>
+        <button onClick={handleSubmit}>Request Price</button>
         {totalPrice !== null && (
             <div className="total-price">
             <h3>Total Price: {totalPrice}$</h3>
-            <button className="book-event-button" onClick={handleBookEvent}>Book Event</button>
+            <button className="book-event-button" type="submit">Book Event</button>
             </div>
         )}
       </form>

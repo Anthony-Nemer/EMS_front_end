@@ -17,7 +17,7 @@
 
 .move-text{
     font-weight: bold;
-    animation: moveText 2s  infinite alternate-reverse;
+    animation: moveText 3s  infinite alternate-reverse;
     color: #173556c9;
     margin: 40px;
 }
@@ -97,4 +97,8 @@
   align-items: center;
   gap: 20px;
  
+}
+
+button{
+  border-radius: 7px;
 }
