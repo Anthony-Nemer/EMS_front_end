@@ -1,0 +1,29 @@
+.getstarted{
+    background: linear-gradient(to bottom, #4f95d3 10%, #1c1ec7 90%); 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 70px;
+    gap: 20px;
+}
+.getstarted h4{
+    color: white;
+    margin-top: 20px;
+    font-size: 30px;
+}
+.getstarted-text{
+    font-size: 2rem;
+    font-weight: bold;
+    animation: scale 3s infinite;
+    color: #173556c9;
+    margin: 40px;
+}
+@keyframes scale{
+    0%,100%{
+       transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+}

@@ -25,8 +25,8 @@ export const HostNav = ({ fullName, handleLogout }) => {
   return (
     <nav className="navbar">
       <ul>
-        <li onClick={() => navigate("/homepage")}>Home</li>
-        <li>Manage Events</li>
+        <li onClick={() => navigate("/dashboard")}>Home</li>
+        <li onClick={()=>navigate("/manage-events")}>Manage Events</li>
         <li onClick={handleLogout}>Logout</li>
       </ul>
     </nav>

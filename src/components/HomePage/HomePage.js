@@ -13,9 +13,6 @@ const HomePage = ({ id, fullName, email, mobile, isSupplier, isHost }) => {
     <div>
     <div className="homepage">
             <div className='move-text'>
-                {/* <h2>Plan</h2>  
-                <h2>Organize</h2> 
-                <h2>&Manage events seamlessly!</h2>  */}
                 <h2>Plan, Organize &Manage events seamlessly!</h2>
             </div>
             <div className="desc-homepage">

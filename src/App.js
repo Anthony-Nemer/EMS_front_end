@@ -8,6 +8,7 @@ import { ClientNav, HostNav, SupplierNav } from './components/NavBar/NavBar';
 import NewEvent from './components/NewEvent/NewEvent';
 import FeedBack from './components/FeedBack/FeedBack';
 // import OngoingEvents from './components/OnGoingEvents/OngoingEvents';
+import DashBoard from './components/DashBoardHost/DashBoard';
 
 function App() {
   const [userInfo, setUserInfo] = useState([]);
@@ -91,6 +92,12 @@ function App() {
             }
           />
           <Route path="*" element={<Navigate to="/" replace />} />
+          <Route
+            path="/dashboard"
+            element={
+              loggedIn ? <DashBoard userInfo={userInfo} /> : <Navigate to="/" replace />
+            }
+          />
         </Routes>
       </div>
     </Router>
