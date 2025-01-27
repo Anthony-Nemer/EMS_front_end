@@ -141,48 +141,7 @@ function NewEvent({ userInfo }) {
     return selectedServicesPrice;
   };
   
-  // const handleBookEvent = async (e) => {
-  //     e.preventDefault();  // Prevent page reload
-  //     const eventData = {
-  //       user_id: userInfo.id, 
-  //       event_title: eventTitle,  // Update to match backend
-  //       event_date: eventDate,    // Update to match backend
-  //       duration,
-  //       venue_id: venue,          // Update to match backend
-  //       attendance_number: attendanceNumber, // Update to match backend
-  //       persons_per_table: personsPerTable, // Update to match backend
-  //       number_of_tables: tableNumber,      // Update to match backend
-  //       cuisine_id: cuisine,       // Update to match backend
-  //       selectedServices           // Assuming services are handled separately
-  //     };
-  
 
-  //   try {
-  //     const response = await axios.post(`${baseUrl}/book-event`, eventData);
-      
-  //     if (response.status === 200) {
-  
-  //       setEventTitle("");
-  //       setEventDate("");
-  //       setDuration("");
-  //       setVenue("");
-  //       setAttendanceNumber(0);
-  //       setPersonsPerTable(0);
-  //       setTableNumber(0);
-  //       setCuisine("");
-  //       setSelectedServices([]);
-  //       setTotalPrice(null);
-  
-  //       navigate("/homepage");   
-  //     } else {
-  //       console.error("Failed to book event :", response.data);
-  //     }
-  //   } catch (error) {
-  //     alert("There was an error booking your event.Please try again.");
-  //     console.error("Error:",error);
-  //   }
-  // };
-  
   const handleBookEvent = async (e) => {
     e.preventDefault(); 
 

@@ -7,7 +7,7 @@ import HomePage from './components/HomePage/HomePage';
 import { ClientNav, HostNav, SupplierNav } from './components/NavBar/NavBar';
 import NewEvent from './components/NewEvent/NewEvent';
 import FeedBack from './components/FeedBack/FeedBack';
-// import OngoingEvents from './components/OnGoingEvents/OngoingEvents';
+import OngoingEvents from './components/OnGoingEvents/OngoingEvents';
 import DashBoard from './components/DashBoardHost/DashBoard';
 
 function App() {
@@ -79,12 +79,12 @@ function App() {
               loggedIn ? <NewEvent userInfo={userInfo} /> : <Navigate to="/" replace />
             }
           />
-          {/* <Route
+          <Route
             path="/ongoing-events"
             element={
               loggedIn ? <OngoingEvents userInfo={userInfo} /> : <Navigate to="/" replace />
             }
-          /> */}
+          />
           <Route
             path="/feedback"
             element={

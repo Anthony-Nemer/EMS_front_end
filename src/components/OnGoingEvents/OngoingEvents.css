@@ -1,0 +1,37 @@
+/* Ensuring the body covers the full screen with a gradient */
+.body {
+    width: 100%;     
+    min-height: 100vh; 
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    background: linear-gradient(to bottom, #00115c 10%, #000000 90%);
+}
+
+/* Styling the ongoing container to center the data grid */
+.ongoing {
+    display: flex;
+    justify-content: center; /* Centers the table horizontally */
+    align-items: flex-start;
+    margin: 100px auto; /* Top margin of 100px, centering horizontally */
+    padding: 20px;
+    width: 90%; /* Ensures the width is responsive */
+    max-width: 1200px; /* Prevents the table from being too wide */
+    box-sizing: border-box; 
+}
+
+/* Styling the DataGrid to have a smooth background and rounded corners */
+.MuiDataGrid-root {
+    background-color: #fffbfb;
+    border-radius: 10px;
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensures the table fills the container */
+    overflow-x: auto; /* Allows horizontal scrolling on small screens */
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .ongoing {
+        margin: 50px 10px; /* Smaller margin for mobile screens */
+    }
+}
