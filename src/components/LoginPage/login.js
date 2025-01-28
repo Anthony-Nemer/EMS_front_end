@@ -22,8 +22,13 @@ const Login = ({ onLoginSuccess }) => {
             setError('');     
             const { userInfo, id, fullName, email: responseEmail, mobile, isSupplier, isHost } = res.data;  
             onLoginSuccess(userInfo, id, fullName, email, mobile, isSupplier, userInfo.isHost);
-            navigate('/homepage');
-    
+            if(userInfo.isHost) {
+                navigate('/dashboard');
+            }else if(userInfo.isSupplier){
+                navigate('/homepage'); //Ghayre this one
+            }else{ 
+                navigate('/homepage');
+            }
         } catch (err) {
             console.error('Error: ', err);
             setError(err.response?.data?.message || 'Login failed');
