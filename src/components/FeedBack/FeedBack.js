@@ -5,59 +5,54 @@ import { useNavigate } from "react-router-dom";
 
 const baseUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
-function FeedBack({userInfo}) {
-    const[feedback,setFeedback]=useState("");
-    const[rating,setRating]=useState("");
-    const[services,setServices]=useState("");
-    const[suggestions,setSuggestions]=useState("");
+function FeedBack({ userInfo }) {
+    const [feedback, setFeedback] = useState("");
+    const [rating, setRating] = useState("");
+    const [services, setServices] = useState("");
+    const [suggestions, setSuggestions] = useState("");
 
     const navigate = useNavigate();
 
-    const handleResetButton=()=>{
+    const handleResetButton = () => {
         setFeedback("");
         setRating("");
         setServices("");
         setSuggestions("");
-    }
+    };
 
     const handleSubmitButton = async (e) => {
-        e.preventDefault();  // Prevent page reload
+        e.preventDefault();
 
-        if(!feedback || !rating || !services){
-          alert("Please fill out all fields");
-          return;
+        if (!feedback || !rating || !services) {
+            alert("Please fill out all fields.");
+            return;
         }
-      
+
         const feedbackData = {
-          user_id: userInfo.id, 
-          feedback,
-          rating:Number(rating),
-          services,
-          suggestions
+            user_id: userInfo.id,
+            feedback,
+            rating: Number(rating),
+            services,
+            suggestions,
         };
 
-        console.log("Sending feedBack data:",feedbackData);
-      
+        console.log("Sending feedback data:", feedbackData);
+
         try {
-          const response = await axios.post(`${baseUrl}/feedback`, feedbackData);
-          
-          if (response.status === 200) {
-            alert("Feedback submitted successfully");
-      
-            setFeedback("");
-            setRating("");
-            setServices("");
-            setSuggestions("");
-      
-            navigate("/homepage");  
-          } else {
-            console.error("Error submitting feedback:", response.data);
-          }
+            const response = await axios.post(`${baseUrl}/feedback`, feedbackData);
+            if (response.status === 200) {
+                alert("Thank you for your feedback!");
+                handleResetButton();
+                navigate("/homepage");
+            } else {
+                console.error("Error submitting feedback:", response.data);
+            }
         } catch (error) {
-          alert("There was an error submitting your feedback.Please try again.");
-          console.error("Error:",error);
+            alert("There was an error submitting your feedback. Please try again.");
+            console.error("Error:", error);
         }
-      };
+    };
+
     return (
         <div className="feedback-form">
             <fieldset>
