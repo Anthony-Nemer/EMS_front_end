@@ -41,7 +41,7 @@ function Venue() {
             <p>Address: {v.address}</p>
             <p>Capacity: {v.capacity}</p>
             <p>Price: ${v.price}</p>
-            <img src={v.photo} alt={v.name} width="150" />
+            <p><img src={v.photo} alt={v.name} width="150" /></p>
           </li>
         ))}
       </ul>

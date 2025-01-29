@@ -9,6 +9,7 @@ import NewEvent from './components/NewEvent/NewEvent';
 import FeedBack from './components/FeedBack/FeedBack';
 import OngoingEvents from './components/OnGoingEvents/OngoingEvents';
 import DashBoard from './components/DashBoardHost/DashBoard';
+import AddVenue from './components/AddVenue/AddVenue';
 
 function App() {
   const [userInfo, setUserInfo] = useState([]);
@@ -96,6 +97,12 @@ function App() {
             path="/dashboard"
             element={
               loggedIn ? <DashBoard userInfo={userInfo} /> : <Navigate to="/" replace />
+            }
+          />
+          <Route
+            path="/add-venue"
+            element={
+              loggedIn ? <AddVenue userInfo={userInfo} /> : <Navigate to="/" replace />
             }
           />
         </Routes>
