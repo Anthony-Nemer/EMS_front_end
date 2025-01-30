@@ -3,7 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import './AddVenue.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 
 const baseUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
@@ -18,13 +18,6 @@ const AddVenue=()=>{
         isAvailable:true,
         price:"",
     });
-    const[name,setName]=useState();
-    const[address,setAddress]=useState();
-    const[capacity,setCapacity]=useState();
-    const[photo,setPhoto]=useState();
-    const[isAvailable,setIsAvailable]=useState(true);
-    const[price,setPrice]=useState();
-    const navigate=useNavigate();
 
     useEffect(() => {
         axios.get(`${baseUrl}/fetch-venues`) 
@@ -50,7 +43,7 @@ const AddVenue=()=>{
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        const feedbackData = {
+        const venueData = {
             name: newVenue.name,
             address: newVenue.address,
             capacity: newVenue.capacity,
@@ -59,13 +52,13 @@ const AddVenue=()=>{
             isAvailable: newVenue.isAvailable,
         };
     
-        console.log("Sending feedback data:", feedbackData);
+        console.log("Sending venue data:", venueData);
     
         try {
-            const response = await axios.post(`${baseUrl}/new-venue`, feedbackData);
+            const response = await axios.post(`${baseUrl}/new-venue`, venueData);
             if (response.status === 201) { 
                 alert("Venue added successfully");
-                setVenues([...venues, { ...feedbackData, id: response.data.id }]); 
+                setVenues([...venues, { ...venueData, id: response.data.id }]); 
                 setOpen(false);
             } else {
                 console.error("Error adding venue:", response.data);

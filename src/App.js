@@ -10,6 +10,7 @@ import FeedBack from './components/FeedBack/FeedBack';
 import OngoingEvents from './components/OnGoingEvents/OngoingEvents';
 import DashBoard from './components/DashBoardHost/DashBoard';
 import AddVenue from './components/AddVenue/AddVenue';
+import AddCuisine from './components/AddCuisine/AddCuisine';
 
 function App() {
   const [userInfo, setUserInfo] = useState([]);
@@ -105,6 +106,12 @@ function App() {
               loggedIn ? <AddVenue userInfo={userInfo} /> : <Navigate to="/" replace />
             }
           />
+          <Route
+            path="/add-cuisine"
+            element={
+              loggedIn ? <AddCuisine userInfo={userInfo}/> : <Navigate to="/" replace />
+             } 
+            />
         </Routes>
       </div>
     </Router>
