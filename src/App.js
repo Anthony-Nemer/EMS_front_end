@@ -11,6 +11,7 @@ import OngoingEvents from './components/OnGoingEvents/OngoingEvents';
 import DashBoard from './components/DashBoardHost/DashBoard';
 import AddVenue from './components/AddVenue/AddVenue';
 import AddCuisine from './components/AddCuisine/AddCuisine';
+import ManageEvents from './components/ManageEvents/ManageEvents';
 
 function App() {
   const [userInfo, setUserInfo] = useState([]);
@@ -100,6 +101,12 @@ function App() {
               loggedIn ? <DashBoard userInfo={userInfo} /> : <Navigate to="/" replace />
             }
           />
+          <Route
+            path="/manage-events"
+            element={
+              loggedIn ? <ManageEvents userInfo={userInfo}/> : <Navigate to="/" replace />
+             } 
+            />
           <Route
             path="/add-venue"
             element={

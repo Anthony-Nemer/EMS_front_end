@@ -46,11 +46,11 @@ const AddCuisine=()=>{
 
       try{
         const response= await axios.post(`${baseUrl}/new-cuisine`, cuisineData);
-        if(response.status==200){
+        if (response.status === 201) {
             alert("Cuisine added successfully");
-            setCuisines([...cuisines,{cuisineData, id:response.data.id}]);
+            setCuisines([...cuisines, { ...cuisineData, id: response.data.id }]);
             setOpen(false);
-        }else{
+        } else {
             console.error("Error adding cuisine:", response.data);
         }
       }catch(error){
