@@ -1,0 +1,53 @@
+.supplier-list {
+    width: 80%;
+    margin-top: 80px;
+    margin-left: 150px;
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.supplier-list h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.supplier-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.supplier-list th, .supplier-list td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.supplier-list th {
+    background: #007BFF;
+    color: white;
+    font-weight: bold;
+}
+
+.supplier-list tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+.supplier-list button {
+    background: #28a745;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.supplier-list button:hover {
+    background: #218838;
+}

@@ -12,6 +12,7 @@ import DashBoard from './components/DashBoardHost/DashBoard';
 import AddVenue from './components/AddVenue/AddVenue';
 import AddCuisine from './components/AddCuisine/AddCuisine';
 import ManageEvents from './components/ManageEvents/ManageEvents';
+import ContactSupplier from './components/ContactSupplier/ContactSupplier';
 
 function App() {
   const [userInfo, setUserInfo] = useState([]);
@@ -117,6 +118,12 @@ function App() {
             path="/add-cuisine"
             element={
               loggedIn ? <AddCuisine userInfo={userInfo}/> : <Navigate to="/" replace />
+             } 
+            />
+            <Route
+            path="contact-supplier"
+            element={
+              loggedIn ? <ContactSupplier userInfo={userInfo}/> : <Navigate to="/" replace />
              } 
             />
         </Routes>

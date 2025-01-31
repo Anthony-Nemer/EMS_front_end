@@ -23,14 +23,15 @@ function ManageEvents(){
         });
     },[]);
 
-    const updateEventStatus=async(eventId,status)=>{
-        try{
-            const response=await axios.put(`${baseUrl}/event-status` ,{event_id:eventId,status});
+    const updateEventStatus = async (eventId, status) => {
+        try {
+            const response = await axios.put(`${baseUrl}/event-status`, { event_id: eventId, status });
             alert(response.data.message);
-            setEvents(events.map(event=>
-                event.event_id===eventId?{...event,status}:event));
-        }catch(error){
-            console.error("Error updating event status:",error);
+            setEvents(events.map(event => 
+                event.event_id === eventId ? { ...event, status } : event
+            ));
+        } catch (error) {
+            console.error("Error updating event status:", error);
         }
     };
 
