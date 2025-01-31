@@ -18,7 +18,7 @@ function OngoingEvents({ userInfo }) {
     const handleClickOpenPay = async (id) => {
         setLoading(true);
         setSelectedEvent(id);
-        await fetchPayments(id);
+        fetchPayments(id);
         setLoading(false);
         setOpenDialog(true);
     };
@@ -42,6 +42,7 @@ function OngoingEvents({ userInfo }) {
                     ...service,
                     price: Number(service.price),
                 }));
+                console.log("Invoice data:", invoiceData);
                 setInvoiceData(invoiceData);
             }
         } catch (error) {
@@ -67,7 +68,7 @@ function OngoingEvents({ userInfo }) {
     const columns = [
         { field: 'event_title', headerName: 'Title', flex: 1, align: 'center', headerAlign: 'center' },
         { field: 'event_date', headerName: 'Date', flex: 1, align: 'center', headerAlign: 'center' },
-        { field: 'status', headerName: 'Status', flex: 1, align: 'center', headerAlign: 'center' },
+        { field: 'status', headerName: 'Status', width: 200, align: 'center', headerAlign: 'center' },
         { field: 'duration', headerName: 'Duration', flex: 1, align: 'center', headerAlign: 'center' },
         { field: 'venue_name', headerName: 'Venue', flex: 1, align: 'center', headerAlign: 'center' },
         { field: 'cuisine_name', headerName: 'Cuisine', flex: 1, align: 'center', headerAlign: 'center' },
@@ -154,11 +155,15 @@ function OngoingEvents({ userInfo }) {
                             </DialogContentText>
                             <DialogContentText>
                                 <strong>Services:</strong>
-                                {invoiceData.services.map((service, index) => (
-                                    <div key={index}>
-                                        {service.name}: ${service.price}
-                                    </div>
-                                ))}
+                                {invoiceData.services.length > 0 ? (
+                                    invoiceData.services.map((service, index) => (
+                                        <div key={index}>
+                                            {service.name}: ${service.price.toFixed(2)}
+                                        </div>
+                                    ))
+                                ) : (
+                                    <div>No additional services selected.</div>
+                                )}
                             </DialogContentText>
                             <DialogContentText>
                                 <strong>Total Cost:</strong> ${invoiceData.total_cost}

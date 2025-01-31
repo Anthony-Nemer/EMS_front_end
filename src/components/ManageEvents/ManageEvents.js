@@ -27,8 +27,9 @@ function ManageEvents(){
         try {
             const response = await axios.put(`${baseUrl}/event-status`, { event_id: eventId, status });
             alert(response.data.message);
+            const updatedStatus = status === 'accepted' ? 'Pending Payment' : 'Rejected';
             setEvents(events.map(event => 
-                event.event_id === eventId ? { ...event, status } : event
+                event.event_id === eventId ? { ...event, status: updatedStatus } : event
             ));
         } catch (error) {
             console.error("Error updating event status:", error);
@@ -51,6 +52,7 @@ function ManageEvents(){
                         <th>Number of tables:</th>
                         <th>Cuisine ID:</th>
                         <th>Status:</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,8 +70,8 @@ function ManageEvents(){
                             <td>{event.status}</td>
                             <td>{event.status==="Pending Approval" &&(
                                 <>
-                                <button className="accept" onClick={()=>updateEventStatus(event.id,'accepted')}>Accept</button>
-                                <button className="deny" onClick={()=>updateEventStatus(event.id,'denied')}>Deny</button>
+                                <button className="accept" onClick={()=>updateEventStatus(event.event_id,'accepted')}>Accept</button>
+                                <button className="deny" onClick={()=>updateEventStatus(event.event_id,'denied')}>Reject</button>
                                 </>
                             )}
                             </td>
