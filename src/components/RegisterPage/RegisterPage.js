@@ -16,18 +16,18 @@ function RegisterPage() {
     const [verifyPassword, setVerifyPassword] = useState('');
     const [newPhoneNumber, setNewPhoneNumber] = useState('');
     const [userRole, setUserRole] = useState('personal');
-    const [services, setServices] = useState([]);
-    const [selectedService, setSelectedService] = useState('');
+    const [cuisines, setCuisinies] = useState([]);
+    const [selectedCuisine, setSelectedCuisine] = useState('');
     const [employeePin, setEmployeePin] = useState('');
     const [error, setError] = useState('');
 
 
-    const fetchServices = async () => {
+    const fetchCuisines = async () => {
         try {
-            const response = await Axios.get(`${baseUrl}/fetch-services`);
-            setServices(response.data);
+            const response = await Axios.get(`${baseUrl}/fetch-cuisines`);
+            setCuisinies(response.data);
         } catch (error) {
-            console.error('Error fetching services:', error);
+            console.error('Error fetching cuisines:', error);
         }
     };
 
@@ -45,21 +45,22 @@ function RegisterPage() {
             setError('Enter a valid email address');
             return;
         }
-        let serviceData = null;
+        let cuisineData = null;
         let employeePinData = null;
     
         if (userRole === 'supplier') {
-            serviceData = selectedService;  // Service should be set if role is supplier
+            cuisineData = selectedCuisine;  // Service should be set if role is supplier
         } else if (userRole === 'host') {
             employeePinData = employeePin;  // Employee PIN should be set if role is host
         }
+        console.log("Selected Cuisine:", selectedCuisine);
         const req = {
             fullName : newFullName,
             email: newEmail,
             password: newPassword,
             mobile : newPhoneNumber,
             role : userRole,
-            service : serviceData,
+            cuisineId : cuisineData,
             employeePin : employeePinData
         }
         setError('');
@@ -85,7 +86,7 @@ function RegisterPage() {
     }
 
     useEffect(() => {
-        fetchServices();
+        fetchCuisines();
 
     }, [])
 
@@ -95,8 +96,8 @@ function RegisterPage() {
     const handleRoleChange = (e) => {
         setUserRole(e.target.value); 
     };
-    const handleServiceChange = (e) => {
-        setSelectedService(e.target.value);
+    const handleCuisineChange = (e) => {
+        setSelectedCuisine(e.target.value);
     };
 
 
@@ -176,17 +177,17 @@ function RegisterPage() {
 
                     {userRole === 'supplier' &&
                     <div>
-                        <label htmlFor="service-select">Select a Service:</label>
+                        <label htmlFor="service-select">Select a Cuisine:</label>
                         <select
                             id="service-select"
-                            value={selectedService}
-                            onChange={handleServiceChange}
+                            value={selectedCuisine}
+                            onChange={handleCuisineChange}
                             required={userRole === 'supplier'}
                         >
-                            <option value="">-- Select a Service --</option>
-                            {services.map((service) => (
-                                <option key={service.id} value={service.id}>
-                                    {service.service_name}
+                            <option value="">-- Select a Cuisine --</option>
+                            {cuisines.map((cuisine) => (
+                                <option key={cuisine.id} value={cuisine.id}>
+                                    {cuisine.cuisine}
                                 </option>
                             ))}
                         </select>
