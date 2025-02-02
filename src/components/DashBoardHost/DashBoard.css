@@ -1,3 +1,4 @@
+
 .getstarted{
     background: linear-gradient(to bottom, #4f95d3 10%, #1c1ec7 90%); 
     display:flex;
@@ -5,6 +6,7 @@
     align-items: center;
     flex-direction: column;
     padding: 70px;
+    height: 100vh;
     gap: 20px;
 }
 .getstarted h4{

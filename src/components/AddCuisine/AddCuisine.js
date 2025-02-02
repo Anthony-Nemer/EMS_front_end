@@ -65,24 +65,41 @@ const AddCuisine=()=>{
         {field:"price", headerName:"Price Per Person($)",flex:1},
     ];
 
-    return(
+    return (
         <div className="body">
-            <div className="add">
-                <Button variant="contained" color="primary" onClick={()=>setOpen(true)}>Add Cuisine</Button>
-                <DataGrid rows={cuisines || []} columns={columns} pageSize={5} getRowId={(row)=>row.id}/>
-                    <Dialog  open={open} onClose={()=>setOpen(false)}>
-                        <DialogTitle>Add New Cuisine</DialogTitle>
-                        <DialogContent>
-                            <TextField label="Cuisine Type" name="cuisine" fullWidth onChange={handleChange}/>
-                            <TextField label="Price" name="price" fullWidth onChange={handleChange}/>
-                        </DialogContent>
-                        <DialogActions>
-                            <Button onClick={()=>setOpen(false)}>Cancel</Button>
-                            <Button onClick={handleSubmit} color="primary">Add</Button>
-                        </DialogActions>
-                    </Dialog>
+            <div className="container">
+                <div className="button-container">
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        className="add-button"
+                        onClick={() => setOpen(true)}
+                    >
+                        Add Cuisine
+                    </Button>
+                </div>
+                <div className="table-container">
+                    <DataGrid 
+                        rows={cuisines || []} 
+                        columns={columns} 
+                        pageSize={5} 
+                        getRowId={(row) => row.id} 
+                    />
+                </div>
             </div>
+            <Dialog open={open} onClose={() => setOpen(false)}>
+                <DialogTitle>Add New Cuisine</DialogTitle>
+                <DialogContent>
+                    <TextField label="Cuisine Type" name="cuisine" fullWidth onChange={handleChange} />
+                    <TextField label="Price" name="price" fullWidth onChange={handleChange} />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => setOpen(false)}>Cancel</Button>
+                    <Button onClick={handleSubmit} color="primary">Add</Button>
+                </DialogActions>
+            </Dialog>
         </div>
     );
+    
 }
 export default AddCuisine;

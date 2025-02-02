@@ -49,9 +49,9 @@ function RegisterPage() {
         let employeePinData = null;
     
         if (userRole === 'supplier') {
-            cuisineData = selectedCuisine;  // Service should be set if role is supplier
+            cuisineData = selectedCuisine; 
         } else if (userRole === 'host') {
-            employeePinData = employeePin;  // Employee PIN should be set if role is host
+            employeePinData = employeePin;  
         }
         console.log("Selected Cuisine:", selectedCuisine);
         const req = {
@@ -121,14 +121,15 @@ function RegisterPage() {
                         <input type='text' onChange={(e) => setNewFullName(e.target.value)} required/>
                     </label>
                     <label>Email Address: 
-                        <input type='text' onChange={(e) => setNewEmail(e.target.value)} required/>
+                        <input type='text' onChange={(e) => setNewEmail(e.target.value)} required autoComplete="off" />
                     </label>
                     <label>Password: 
-                        <input type='password' onChange={(e) => setNewPassword(e.target.value)} required/>
+                        <input type='password' onChange={(e) => setNewPassword(e.target.value)} required autoComplete="off"/>
                     </label>
                     <label>Confirm Password: 
-                        <input type='password' onChange={(e) => setVerifyPassword(e.target.value)} required/>
+                        <input type='password' onChange={(e) => setVerifyPassword(e.target.value)} required autoComplete="off"/>
                     </label>
+
                     <label>Mobile Number:
                         <PhoneInput
                             international

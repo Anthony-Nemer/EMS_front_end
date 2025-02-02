@@ -37,6 +37,7 @@ function ManageEvents(){
     };
 
     return(
+        <div className="body">
         <div className="manage-events">
             <h2>Manage Events</h2>
             <table>
@@ -79,6 +80,7 @@ function ManageEvents(){
                     ))}
                 </tbody>
             </table>
+        </div>
         </div>
     );
 }

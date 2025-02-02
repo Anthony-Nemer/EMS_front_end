@@ -1,84 +1,53 @@
-.body {
-    width: 100%;     
-    min-height: 100vh; 
-    margin: 0;
-    display: flex;
-    justify-content: center; 
-    background: linear-gradient(to bottom, #00115c 10%, #000000 90%);
-}
-
-.add {
-    display: flex;
-    justify-content: center; 
-    align-items: flex-start;
-    margin: 100px auto;
-    padding: 20px;
-    width: 100%; 
-    max-width: 1200px; 
-    box-sizing: border-box; 
-}
-
-.MuiDataGrid-root {
-    background-color: #fffbfb;
-    border-radius: 10px;
-    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    overflow-x: auto; 
-}
-
-@media (max-width: 768px) {
-    .add {
-        margin: 50px 10px; 
-    }
-}
-
-.add-button{
-    background-color: #064dd1;
-    font-size: 15px;
-}
-
-
-.MuiDialog-paper {
-    padding: 20px;
-    max-width: 600px; 
-    margin: 0 auto;
-}
-
-.MuiDialogTitle-root {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-}
-
-.MuiDialogContent-root {
+.container {
     display: flex;
     flex-direction: column;
-    gap: 15px;  
+    align-items: flex-start; 
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 100px auto;
+    box-sizing: border-box;
+    position: relative; 
+    background: transparent;
+    border: none; 
 }
 
-.MuiDialogActions-root {
-    justify-content: center;  
-    margin-top: 20px;
+.button-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
 }
 
 .add-button {
+    background-color: #064dd1;
+    font-size: 15px;
     color: white;
-    padding: 5px 10px;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
 }
 
-
-
-.MuiDialogContentText-root {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #333;
+.table-container {
+    width: 100%;
+    max-width: 100%; 
+    height: 100%; 
+    background-color: #fffbfb;
+    border-radius: 10px;
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    margin-top: 50px; 
 }
 
-.MuiDialogContentText-root strong {
-    font-weight: bold;
-    color: #000;
+.MuiDataGrid-root {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
 }

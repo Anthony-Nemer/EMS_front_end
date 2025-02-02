@@ -8,7 +8,6 @@ const DashBoard=({id, fullName, email, mobile, isSupplier, isHost})=>{
     }
     return(
         <div className="dashboard">
-             {/* manage events */}
             <div className="getstarted">
                 <h4 className="getstarted-text">Manage your bookings and client/supplier interactions easily!</h4>
                 <button onClick={manageEventButton}>Manage Events</button>
