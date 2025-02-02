@@ -12,7 +12,7 @@ import DashBoard from './components/DashBoardHost/DashBoard';
 import AddVenue from './components/AddVenue/AddVenue';
 import AddCuisine from './components/AddCuisine/AddCuisine';
 import ManageEvents from './components/ManageEvents/ManageEvents';
-import ContactSupplier from './components/ContactSupplier/ContactSupplier';
+import RestockCuisine from './components/RestockCuisine/RestockCuisine';
 
 function App() {
   const [userInfo, setUserInfo] = useState([]);
@@ -121,9 +121,9 @@ function App() {
              } 
             />
             <Route
-            path="contact-supplier"
+            path="restock-cuisine"
             element={
-              loggedIn ? <ContactSupplier userInfo={userInfo}/> : <Navigate to="/" replace />
+              loggedIn ? <RestockCuisine userId={id}/> : <Navigate to="/" replace />
              } 
             />
         </Routes>
