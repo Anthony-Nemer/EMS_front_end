@@ -21,7 +21,12 @@ function RestockCuisine({ userId }) {
             cuisine_id: selectedCuisine,
             items
         })
-        .then(response => alert(response.data.message)) 
+        .then(response => {
+            alert(response.data.message);
+            // Clear inputs after successful submission
+            setSelectedCuisine(null);
+            setItems([{ name: "", quantity: 0 }]);
+        }) 
         .catch(error => {
             if (error.response && error.response.status === 404) {
                 alert(error.response.data.message); 
@@ -34,7 +39,11 @@ function RestockCuisine({ userId }) {
     return (
         <div className="restock-container">
             <h2>Restock Cuisine</h2>
-            <select className="cuisine-select" onChange={e => setSelectedCuisine(e.target.value)}>
+            <select 
+                className="cuisine-select" 
+                value={selectedCuisine || ""} 
+                onChange={e => setSelectedCuisine(e.target.value)}
+            >
                 <option value="">Select Cuisine</option>
                 {cuisines.map(cuisine => (
                     <option key={cuisine.id} value={cuisine.id}>{cuisine.cuisine}</option>
