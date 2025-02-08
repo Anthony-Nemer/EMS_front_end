@@ -42,9 +42,7 @@ export const SupplierNav = ({ fullName, handleLogout }) => {
     <nav className="navbar">
       <ul>
         <li onClick={() => navigate("/homepage")}>Home</li>
-        <li>My Services</li>
-        <li>Add Service</li>
-        <li>Feedback</li>
+        <li>Services</li>
         <li onClick={handleLogout}>Logout</li>
       </ul>
     </nav>
