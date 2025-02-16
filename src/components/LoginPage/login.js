@@ -25,7 +25,7 @@ const Login = ({ onLoginSuccess }) => {
             if(userInfo.isHost) {
                 navigate('/dashboard');
             }else if(userInfo.isSupplier){
-                navigate('/homepage'); //Ghayre this one
+                navigate('/homepage');
             }else{ 
                 navigate('/homepage');
             }
